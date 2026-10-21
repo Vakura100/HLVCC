@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Guau | Pet Hotel & Spa de Lujo</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#faf7f2',
+                            200: '#f3e8d8',
+                            300: '#e8d5be',
+                        },
+                        terracotta: {
+                            400: '#e78a72',
+                            500: '#e07a5f',
+                            600: '#d06246',
+                            700: '#b84a30',
+                        },
+                        emeraldCustom: {
+                            400: '#34d399',
+                            500: '#2a9d8f',
+                            600: '#218377',
+                            700: '#1a685e',
+                        },
+                        warmdark: '#264653',
+                        warmgold: '#f4a261',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -5px rgba(224, 122, 95, 0.08)',
+                        'card': '0 15px 35px -5px rgba(38, 70, 83, 0.07)',
+                        'glow': '0 0 20px rgba(224, 122, 95, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* CSS Personalizado para Animaciones y Detalle */
+        .glass-nav {
+            background: rgba(253, 251, 247, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .pulse-red {
+            animation: pulse-red-anim 1.5s infinite;
+        }
+
+        @keyframes pulse-red-anim {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .hero-pattern {
+            background-color: #faf7f2;
+            background-image: radial-gradient(#e07a5f 0.65px, transparent 0.65px), radial-gradient(#2a9d8f 0.65px, #faf7f2 0.65px);
+            background-size: 26px 26px;
+            background-position: 0 0, 13px 13px;
+            background-opacity: 0.05;
+        }
+
+        /* Tooltip custom */
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #faf7f2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e07a5f;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-cream-100 text-warmdark font-sans selection:bg-terracotta-500 selection:text-white antialiased">
+
+    <!-- ========================================== -->
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (FIXED) -->
+    <!-- ========================================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-cream-200 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-terracotta-500 to-warmgold flex items-center justify-center text-white shadow-md transform group-hover:rotate-6 transition-transform">
+                        <i class="fa-solid fa-paw text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-xl sm:text-2xl tracking-tight text-warmdark block leading-none">Villa Guau</span>
+                        <span class="text-[10px] tracking-widest font-semibold uppercase text-terracotta-500 block mt-1">Pet Hotel & Spa</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links (Desktop) -->
+                <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm text-slate-700">
+                    <a href="#inicio" class="hover:text-terracotta-500 transition-colors">Inicio</a>
+                    <a href="#suites" class="hover:text-terracotta-500 transition-colors">Suites</a>
+                    <a href="#servicios" class="hover:text-terracotta-500 transition-colors">Servicios</a>
+                    <a href="#camaras" class="hover:text-terracotta-500 transition-colors flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-red-500 pulse-red"></span>
+                        Cámaras En Vivo
+                    </a>
+                    <a href="#cotizador" class="hover:text-terracotta-500 transition-colors">Calculadora</a>
+                    <a href="#galeria" class="hover:text-terracotta-500 transition-colors">Galería</a>
+                    <a href="#faq" class="hover:text-terracotta-500 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Actions / CTA -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+523312345678" class="text-sm font-semibold text-warmdark hover:text-terracotta-500 flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-emeraldCustom-500"></i>
+                        <span class="hidden xl:inline">+52 (33) 1234-5678</span>
+                    </a>
+                    <a href="#cotizador" class="bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-xs"></i>
+                        Reservar Estancia
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl text-warmdark hover:bg-cream-200 transition-colors focus:outline-none" aria-label="Abrir Menú">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-cream-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#inicio" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500">Inicio</a>
+            <a href="#suites" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500">Suites & Habitaciones</a>
+            <a href="#servicios" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500">Servicios Premium</a>
+            <a href="#camaras" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-500 pulse-red"></span>
+                Cámaras En Vivo 24/7
+            </a>
+            <a href="#cotizador" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500">Calculadora de Tarifas</a>
+            <a href="#galeria" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500">Galería de Fotos</a>
+            <a href="#faq" class="mobile-link block font-medium text-slate-800 hover:text-terracotta-500">Preguntas Frecuentes</a>
+            <div class="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                <a href="#cotizador" class="mobile-link w-full text-center bg-terracotta-500 text-white font-semibold py-3 rounded-xl shadow-md">
+                    Reservar Estancia Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION CON BÚSQUEDA RÁPIDA -->
+    <!-- ========================================== -->
+    <section id="inicio" class="pt-28 pb-16 lg:pt-36 lg:pb-24 hero-pattern relative overflow-hidden">
+        
+        <!-- Elementos decorativos flotantes -->
+        <div class="absolute top-20 left-10 w-24 h-24 bg-terracotta-400/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-40 h-40 bg-emeraldCustom-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Texto -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-100 border border-amber-200 text-amber-800 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-crown text-amber-600"></i> Resort Canino 5 Estrellas
+                    </div>
+                    
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-warmdark leading-tight">
+                        El hospedaje de lujo que tu <span class="text-terracotta-500 relative inline-block">
+                            mejor amigo
+                            <svg class="absolute -bottom-2 left-0 w-full h-3 text-terracotta-400/40" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 15 Q 50 0 100 15" stroke="currentColor" stroke-width="6" fill="none"/></svg>
+                        </span> merece.
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Ofrecemos suites climatizadas, cámaras en vivo HD 24/7, parque acuático, menú gourmet BARF y atención veterinaria dedicada. La paz mental que buscas para ti y las mejores vacaciones para tu peludito.
+                    </p>
+
+                    <!-- Acciones CTA -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#cotizador" class="w-full sm:w-auto bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all text-center flex items-center justify-center gap-3">
+                            <span>Calcular Tarifas & Reservar</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#camaras" class="w-full sm:w-auto bg-white hover:bg-cream-50 text-warmdark border border-cream-300 font-semibold px-6 py-4 rounded-2xl shadow-sm hover:shadow transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-video text-emeraldCustom-500"></i>
+                            Ver Cámaras en Vivo
+                        </a>
+                    </div>
+
+                    <!-- Métricas / Badges rápida -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 border-t border-cream-200/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <span class="block font-display font-bold text-2xl text-warmdark">+2,500</span>
+                            <span class="text-xs text-slate-500 font-medium">Huéspedes Felices</span>
+                        </div>
+                        <div>
+                            <span class="block font-display font-bold text-2xl text-warmdark">100%</span>
+                            <span class="text-xs text-slate-500 font-medium">Supervisión 24/7</span>
+                        </div>
+                        <div>
+                            <span class="block font-display font-bold text-2xl text-warmdark">4.9 ★</span>
+                            <span class="text-xs text-slate-500 font-medium">Reseñas Excelentes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Imagen Hero & Tarjetas Flotantes -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Marco principal de imagen con bordes redondeados orgánicos -->
+                        <div class="overflow-hidden rounded-3xl shadow-card border-4 border-white bg-white relative">
+                            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80" alt="Perro feliz en Villa Guau" class="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700">
+                            
+                            <!-- Gradiente superpuesto inferior -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-warmdark/60 via-transparent to-transparent"></div>
+
+                            <div class="absolute bottom-4 left-4 right-4 text-white">
+                                <p class="font-display font-bold text-lg">Entorno Libre de Jaulas</p>
+                                <p class="text-xs text-cream-100 opacity-90">Amor, espacio amplio y socialización supervisada</p>
+                            </div>
+                        </div>
+
+                        <!-- Card Flotante 1: Cámara en Vivo -->
+                        <div class="absolute -top-6 -left-6 bg-white p-3.5 rounded-2xl shadow-xl border border-cream-200 hidden sm:flex items-center gap-3 animate-bounce" style="animation-duration: 4s;">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-500">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-red-500 pulse-red"></span>
+                                    <span class="text-xs font-bold text-warmdark uppercase tracking-wider">Cámara HD</span>
+                                </div>
+                                <span class="text-[11px] text-slate-500">Monitoreo para papás</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Flotante 2: Spa & Piscina -->
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-2xl shadow-xl border border-cream-200 flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-emeraldCustom-500/10 flex items-center justify-center text-emeraldCustom-600">
+                                <i class="fa-solid fa-water-ladder text-xl"></i>
+                            </div>
+                            <div>
+                                <span class="block font-bold text-sm text-warmdark">Pool Resort</span>
+                                <span class="text-xs text-slate-500">Piscina canina aclimatada</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- WIDGET RÁPIDO DE BÚSQUEDA Y DISPONIBILIDAD -->
+            <div class="mt-12 bg-white p-4 sm:p-6 rounded-3xl shadow-card border border-cream-200 max-w-5xl mx-auto">
+                <form id="quickSearchForm" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end" onsubmit="event.preventDefault(); scrollToCalculator();">
+                    
+                    <!-- Campo Entrada -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-calendar-day text-terracotta-500 mr-1"></i> Fecha de Entrada
+                        </label>
+                        <input type="date" id="quickCheckIn" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-3.5 py-2.5 text-sm font-medium text-warmdark focus:outline-none focus:ring-2 focus:ring-terracotta-500" required>
+                    </div>
+
+                    <!-- Campo Salida -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-calendar-check text-terracotta-500 mr-1"></i> Fecha de Salida
+                        </label>
+                        <input type="date" id="quickCheckOut" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-3.5 py-2.5 text-sm font-medium text-warmdark focus:outline-none focus:ring-2 focus:ring-terracotta-500" required>
+                    </div>
+
+                    <!-- Tamaño del perro -->
+                    <div>
+                        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-dog text-terracotta-500 mr-1"></i> Tamaño de la Mascota
+                        </label>
+                        <select id="quickDogSize" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-3.5 py-2.5 text-sm font-medium text-warmdark focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+                            <option value="pequeño">Pequeño (hasta 9 kg)</option>
+                            <option value="mediano" selected>Mediano (10 - 24 kg)</option>
+                            <option value="grande">Grande (25 - 40 kg)</option>
+                            <option value="gigante">Gigante (+40 kg)</option>
+                        </select>
+                    </div>
+
+                    <!-- Botón Cotizar -->
+                    <div>
+                        <button type="submit" class="w-full bg-emeraldCustom-500 hover:bg-emeraldCustom-600 text-white font-semibold py-2.5 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator"></i>
+                            Cotizar Ahora
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- POR QUÉ ELEGIRNOS / DESTACADOS -->
+    <!-- ========================================== -->
+    <section class="py-16 bg-white border-y border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-cream-50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-terracotta-500/10 text-terracotta-500 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-warmdark">Veterinarios 24/7</h3>
+                        <p class="text-xs text-slate-500 mt-1">Supervisión médica permanente y administración de medicamentos.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-cream-50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-emeraldCustom-500/10 text-emeraldCustom-600 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-video"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-warmdark">Transmisión HD 24h</h3>
+                        <p class="text-xs text-slate-500 mt-1">Acceso privado a cámaras desde tu celular en cualquier lugar del mundo.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-cream-50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-warmdark">Menú Gourmet & BARF</h3>
+                        <p class="text-xs text-slate-500 mt-1">Platos naturales adaptados a sus gustos y requerimientos nutricionales.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="flex items-start gap-4 p-4 rounded-2xl hover:bg-cream-50 transition-colors">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-tree"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-warmdark">5,000m² de Parques</h3>
+                        <p class="text-xs text-slate-500 mt-1">Áreas verdes naturales divididas por tamaño y temperamento.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECCIÓN DE SUITES Y HABITACIONES -->
+    <!-- ========================================== -->
+    <section id="suites" class="py-20 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="badge-pill bg-terracotta-500/10 text-terracotta-600 mb-3">
+                    <i class="fa-solid fa-bed mr-1.5"></i> Confort Absoluto
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-warmdark">Nuestras Suites de Hospedaje</h2>
+                <p class="text-slate-600 mt-3 text-sm sm:text-base">Diseñadas para maximizar el descanso, la tranquilidad y el entretenimiento de tu consentido durante su estancia.</p>
+            </div>
+
+            <!-- Grid de Tarjetas de Suites -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Suite 1: Deluxe Suite -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-xl transition-all border border-cream-200 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=700&q=80" alt="Habitación Deluxe Villa Guau" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-warmdark shadow">
+                            Popular
+                        </span>
+                        <div class="absolute bottom-4 right-4 bg-warmdark/90 text-white px-3 py-1.5 rounded-xl font-display font-bold text-sm">
+                            $45 <span class="text-[10px] font-normal opacity-80">/ noche</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-warmdark">Suite Deluxe Classic</h3>
+                            <p class="text-slate-500 text-xs mt-1">Ideal para perritos tranquilos que buscan comodidad cálida.</p>
+                            
+                            <ul class="mt-4 space-y-2 text-xs text-slate-600">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Cama ortopédica Viscoelástica</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Climatización Frío/Calor individual</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Música de relajación Canina 24h</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> 3 Paseos diarios en parque libre</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-cream-200">
+                            <button onclick="selectSuite('deluxe', 45)" class="w-full bg-cream-200 hover:bg-terracotta-500 hover:text-white text-warmdark font-semibold py-2.5 rounded-xl transition-all text-xs tracking-wider uppercase">
+                                Seleccionar para Cotizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suite 2: Villa Jardín -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-xl transition-all border-2 border-terracotta-500 flex flex-col relative group transform md:-translate-y-2">
+                    <span class="absolute top-0 right-0 bg-terracotta-500 text-white text-[10px] font-extrabold uppercase px-4 py-1 rounded-bl-xl tracking-wider">
+                        Recomendado
+                    </span>
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=700&q=80" alt="Villa Jardin Canino" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-4 right-4 bg-terracotta-500 text-white px-3 py-1.5 rounded-xl font-display font-bold text-sm shadow">
+                            $65 <span class="text-[10px] font-normal opacity-90">/ noche</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-warmdark">Villa Jardín Privado</h3>
+                            <p class="text-slate-500 text-xs mt-1">Con acceso directo a minijardín propio totalmente cercado.</p>
+                            
+                            <ul class="mt-4 space-y-2 text-xs text-slate-600">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Mini patio de césped natural propio</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Cámara IP HD privada para los dueños</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Televisión con videos estimulantes (DogTV)</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> 4 Paseos + Acceso a Pool Resort</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-cream-200">
+                            <button onclick="selectSuite('jardin', 65)" class="w-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-semibold py-2.5 rounded-xl transition-all text-xs tracking-wider uppercase shadow-md">
+                                Seleccionar para Cotizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suite 3: Royal VIP Suite -->
+                <div class="bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-xl transition-all border border-cream-200 flex flex-col group">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=700&q=80" alt="Suite VIP Imperial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-amber-400 text-warmdark font-extrabold px-3 py-1 rounded-full text-xs shadow">
+                            <i class="fa-solid fa-crown mr-1"></i> VIP Luxury
+                        </span>
+                        <div class="absolute bottom-4 right-4 bg-warmdark/90 text-white px-3 py-1.5 rounded-xl font-display font-bold text-sm">
+                            $95 <span class="text-[10px] font-normal opacity-80">/ noche</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display font-bold text-xl text-warmdark">Suite Imperial Royale</h3>
+                            <p class="text-slate-500 text-xs mt-1">Máximo lujo, espacio amplio para varias mascotas o perros grandes.</p>
+                            
+                            <ul class="mt-4 space-y-2 text-xs text-slate-600">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Cama de King Size Canina personalizada</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Mayordomo canino dedicado exclusivo</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Sesión diaria de masajes & aromaterapia</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emeraldCustom-500"></i> Menú Gourmet BARF incluido sin costo extra</li>
+                            </ul>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-cream-200">
+                            <button onclick="selectSuite('royale', 95)" class="w-full bg-cream-200 hover:bg-terracotta-500 hover:text-white text-warmdark font-semibold py-2.5 rounded-xl transition-all text-xs tracking-wider uppercase">
+                                Seleccionar para Cotizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SIMULADOR INTERACTIVO DE CÁMARAS EN VIVO -->
+    <!-- ========================================== -->
+    <section id="camaras" class="py-20 bg-warmdark text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-semibold uppercase tracking-wider mb-3">
+                    <span class="w-2 h-2 rounded-full bg-red-500 pulse-red"></span> Transmisión en Tiempo Real
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl">Simulador de Cámaras Web 24/7</h2>
+                <p class="text-slate-300 mt-2 text-sm sm:text-base">Haz clic en los diferentes sectores para verificar el ambiente interactivo donde jugarán tus peluditos.</p>
+            </div>
+
+            <!-- Contenedor del Visor de Cámaras -->
+            <div class="bg-slate-900 rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-700 max-w-5xl mx-auto">
+                
+                <!-- Selector de Cámara (Tabs) -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-6 border-b border-slate-800 pb-4">
+                    <button onclick="switchCamera('indoor', this)" class="cam-tab-btn active bg-terracotta-500 text-white font-medium text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-gamepad"></i> Zona de Juegos Indoor
+                    </button>
+                    <button onclick="switchCamera('pool', this)" class="cam-tab-btn bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-water-ladder"></i> Pool Resort
+                    </button>
+                    <button onclick="switchCamera('suite', this)" class="cam-tab-btn bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-couch"></i> Suite Lounge VIP
+                    </button>
+                    <button onclick="switchCamera('park', this)" class="cam-tab-btn bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-tree"></i> Jardines Campestres
+                    </button>
+                </div>
+
+                <!-- Monitor / Canvas de Cámara -->
+                <div class="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video w-full flex items-center justify-center border border-slate-800 shadow-inner">
+                    
+                    <!-- Overhead de Cámara (UI Cam) -->
+                    <div class="absolute top-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white/90 z-20 pointer-events-none">
+                        <div class="flex items-center gap-2 bg-black/60 px-3 py-1.5 rounded-lg backdrop-blur-md">
+                            <span class="w-2.5 h-2.5 rounded-full bg-red-500 pulse-red"></span>
+                            <span id="camLocationName" class="font-bold uppercase tracking-wider text-amber-400">CAM 01: ZONA INDOOR</span>
+                        </div>
+                        <div class="flex items-center gap-3 bg-black/60 px-3 py-1.5 rounded-lg backdrop-blur-md">
+                            <span class="hidden sm:inline text-emerald-400">1080p HD - 60 FPS</span>
+                            <span id="camClock">00:00:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Watermark -->
+                    <div class="absolute bottom-4 left-4 z-20 opacity-50 pointer-events-none hidden sm:flex items-center gap-2 text-xs font-display">
+                        <i class="fa-solid fa-paw text-terracotta-500"></i> Villa Guau Live Cam System
+                    </div>
+
+                    <!-- Canvas Animado para Perros -->
+                    <canvas id="webcamCanvas" class="w-full h-full object-cover"></canvas>
+
+                    <!-- Overlay Mensaje de Interacción -->
+                    <div id="camNotification" class="absolute bottom-16 bg-emeraldCustom-600/90 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded-full backdrop-blur-md shadow-lg transform translate-y-10 opacity-0 transition-all z-30 pointer-events-none">
+                        ¡Lanzaste una pelota interactiva! 🎾
+                    </div>
+                </div>
+
+                <!-- Controles Interactivos de Cámara simulados -->
+                <div class="mt-4 pt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+                    <div class="flex items-center gap-2">
+                        <span>Acciones simuladas en vivo:</span>
+                        <button onclick="triggerCamAction('ball')" class="bg-slate-800 hover:bg-terracotta-500 hover:text-white text-slate-200 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5">
+                            🎾 Lanzar Pelota
+                        </button>
+                        <button onclick="triggerCamAction('treat')" class="bg-slate-800 hover:bg-amber-500 hover:text-white text-slate-200 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5">
+                            🦴 Enviar Snack
+                        </button>
+                        <button onclick="triggerCamAction('bubbles')" class="bg-slate-800 hover:bg-cyan-500 hover:text-white text-slate-200 px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1.5">
+                            🫧 Activar Burbujas
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-emeraldCustom-400"></i> Conexión Encriptada SSL SSL-256
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SERVICIOS PREMIUM ADICIONALES -->
+    <!-- ========================================== -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="badge-pill bg-emeraldCustom-500/10 text-emeraldCustom-700 mb-3">
+                    <i class="fa-solid fa-sparkles mr-1.5"></i> Experiencia 360°
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-warmdark">Servicios Integrales de Salud & Placer</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Más que una guardería, brindamos un club de relajación y revitalización para tu peludo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Servicio 1 -->
+                <div class="p-8 rounded-3xl bg-cream-50 border border-cream-200 hover:border-terracotta-400 hover:shadow-card transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-terracotta-500 text-white flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-soap"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-warmdark mb-2">Grooming & Spa Canino</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Baño relax con shampoo orgánico hipoalergénico, cepillado de pelo, corte de uñas, limpieza de oídos y masaje aromático.</p>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="p-8 rounded-3xl bg-cream-50 border border-cream-200 hover:border-terracotta-400 hover:shadow-card transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-emeraldCustom-500 text-white flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bowl-food"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-warmdark mb-2">Menú BARF & Gourmet</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Recetas preparadas diariamente por nutriólogos veterinarios. Carnes magras, verduras frescas y caldos de hueso orgánicos.</p>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="p-8 rounded-3xl bg-cream-50 border border-cream-200 hover:border-terracotta-400 hover:shadow-card transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-warmgold text-white flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bone"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-warmdark mb-2">Adiestramiento Positivo</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Sesiones dinámicas de obediencia básica, estimulación cognitiva y refuerzo conductual sin ningún estrés.</p>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="p-8 rounded-3xl bg-cream-50 border border-cream-200 hover:border-terracotta-400 hover:shadow-card transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-500 text-white flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-van-shuttle"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-warmdark mb-2">Pet-Taxi Puerta a Puerta</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Unidades climatizadas y equipadas con arneses de seguridad certificados para recoger y regresar a tu mascota con confort.</p>
+                </div>
+
+                <!-- Servicio 5 -->
+                <div class="p-8 rounded-3xl bg-cream-50 border border-cream-200 hover:border-terracotta-400 hover:shadow-card transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-warmdark mb-2">Hydro-Therapy & Splash</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Ejercicios de bajo impacto en piscina con chalecos salvavidas para mejorar articulaciones y refrescarse.</p>
+                </div>
+
+                <!-- Servicio 6 -->
+                <div class="p-8 rounded-3xl bg-cream-50 border border-cream-200 hover:border-terracotta-400 hover:shadow-card transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-500 text-white flex items-center justify-center text-2xl mb-6 shadow-md group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-warmdark mb-2">Reporte Diario con Fotos</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">Recibe cada tarde en WhatsApp bitácora completa con fotografías, estado de ánimo y videos de sus actividades.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CALCULADORA DE TARIFAS Y RESERVA EN TIEMPO REAL -->
+    <!-- ========================================== -->
+    <section id="cotizador" class="py-20 bg-cream-200/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="badge-pill bg-terracotta-500 text-white mb-3">
+                    <i class="fa-solid fa-calculator mr-1.5"></i> Cotizador Transparente
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-warmdark">Calcula el Costo de la Estancia</h2>
+                <p class="text-slate-600 mt-2 text-sm sm:text-base">Sin cargos ocultos. Personaliza la estancia de tu perrito y obtén un desglose exacto en tiempo real.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Formulario Interactivo (Columna Izquierda) -->
+                <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl shadow-card border border-cream-200">
+                    <form id="calculatorForm" onchange="calculateTotal()" oninput="calculateTotal()">
+                        
+                        <!-- 1. Tipo de Suite -->
+                        <div class="mb-6">
+                            <label class="block font-display font-bold text-sm text-warmdark mb-3">
+                                1. Selecciona la Suite
+                            </label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="suiteType" value="deluxe" data-price="45" class="peer hidden" checked>
+                                    <div class="p-3.5 rounded-2xl border-2 border-cream-200 peer-checked:border-terracotta-500 peer-checked:bg-terracotta-50/30 text-center transition-all">
+                                        <span class="block font-bold text-sm text-warmdark">Deluxe</span>
+                                        <span class="text-xs text-terracotta-600 font-semibold">$45 / noche</span>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="suiteType" value="jardin" data-price="65" class="peer hidden">
+                                    <div class="p-3.5 rounded-2xl border-2 border-cream-200 peer-checked:border-terracotta-500 peer-checked:bg-terracotta-50/30 text-center transition-all">
+                                        <span class="block font-bold text-sm text-warmdark">Villa Jardín</span>
+                                        <span class="text-xs text-terracotta-600 font-semibold">$65 / noche</span>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="suiteType" value="royale" data-price="95" class="peer hidden">
+                                    <div class="p-3.5 rounded-2xl border-2 border-cream-200 peer-checked:border-terracotta-500 peer-checked:bg-terracotta-50/30 text-center transition-all">
+                                        <span class="block font-bold text-sm text-warmdark">Royale VIP</span>
+                                        <span class="text-xs text-terracotta-600 font-semibold">$95 / noche</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 2. Cantidad de Noches y Mascotas -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label class="block font-display font-bold text-xs uppercase text-slate-600 mb-2">
+                                    Noches de Estancia
+                                </label>
+                                <div class="flex items-center bg-cream-50 border border-cream-300 rounded-xl overflow-hidden p-1">
+                                    <button type="button" onclick="adjustNights(-1)" class="w-10 h-10 bg-white shadow-sm rounded-lg text-warmdark font-bold hover:bg-cream-100 flex items-center justify-center">-</button>
+                                    <input type="number" id="calcNights" value="3" min="1" max="60" class="w-full text-center bg-transparent font-bold text-warmdark focus:outline-none" readonly>
+                                    <button type="button" onclick="adjustNights(1)" class="w-10 h-10 bg-white shadow-sm rounded-lg text-warmdark font-bold hover:bg-cream-100 flex items-center justify-center">+</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block font-display font-bold text-xs uppercase text-slate-600 mb-2">
+                                    Número de Peluditos
+                                </label>
+                                <select id="calcDogsCount" class="w-full bg-cream-50 border border-cream-300 rounded-xl p-3 text-sm font-medium text-warmdark focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+                                    <option value="1">1 Perro</option>
+                                    <option value="2">2 Perros (+15% desc. en 2do)</option>
+                                    <option value="3">3 Mascotas (Familia canina)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- 3. Servicios Adicionales Checkboxes -->
+                        <div class="mb-6">
+                            <label class="block font-display font-bold text-sm text-warmdark mb-3">
+                                3. Servicios Extra Opcionales
+                            </label>
+                            <div class="space-y-3">
+                                <label class="flex items-center justify-between p-3 rounded-xl border border-cream-200 hover:bg-cream-50 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" id="addonSpa" class="w-4 h-4 text-terracotta-500 rounded focus:ring-terracotta-500 border-cream-300">
+                                        <div>
+                                            <span class="block font-semibold text-xs text-warmdark">Grooming & Spa Completo</span>
+                                            <span class="text-[11px] text-slate-500">Baño, secado, corte de uñas y perfume</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-terracotta-600">+$35 (Único)</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-3 rounded-xl border border-cream-200 hover:bg-cream-50 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" id="addonBarf" class="w-4 h-4 text-terracotta-500 rounded focus:ring-terracotta-500 border-cream-300">
+                                        <div>
+                                            <span class="block font-semibold text-xs text-warmdark">Menú Gourmet BARF Diario</span>
+                                            <span class="text-[11px] text-slate-500">Alimentación natural fresca cada día</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-terracotta-600">+$12 / día</span>
+                                </label>
+
+                                <label class="flex items-center justify-between p-3 rounded-xl border border-cream-200 hover:bg-cream-50 cursor-pointer">
+                                    <div class="flex items-center gap-3">
+                                        <input type="checkbox" id="addonTaxi" class="w-4 h-4 text-terracotta-500 rounded focus:ring-terracotta-500 border-cream-300">
+                                        <div>
+                                            <span class="block font-semibold text-xs text-warmdark">Pet Taxi Transporte (Ida y Vuelta)</span>
+                                            <span class="text-[11px] text-slate-500">Recogemos y llevamos a tu domicilio</span>
+                                        </div>
+                                    </div>
+                                    <span class="text-xs font-bold text-terracotta-600">+$25 (Único)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Datos del dueño -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Nombre de tu Peludo</label>
+                                <input type="text" id="petNameInput" placeholder="Ej: Toby" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-500" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Tu Teléfono / WhatsApp</label>
+                                <input type="tel" id="ownerPhoneInput" placeholder="+52 33 0000 0000" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta-500" required>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Resumen de Costo & Ticket (Columna Derecha) -->
+                <div class="lg:col-span-5 bg-warmdark text-white p-6 sm:p-8 rounded-3xl shadow-2xl relative overflow-hidden sticky top-28">
+                    
+                    <!-- Adorno fondo -->
+                    <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-terracotta-500/10 rounded-full blur-2xl"></div>
+
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-6">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-receipt text-terracotta-400"></i>
+                            <h3 class="font-display font-bold text-lg">Resumen de Cotización</h3>
+                        </div>
+                        <span class="text-[10px] uppercase bg-emeraldCustom-500/20 text-emeraldCustom-400 px-2.5 py-1 rounded-full font-mono">
+                            I.V.A. Incluido
+                        </span>
+                    </div>
+
+                    <!-- Lista Desglosada -->
+                    <div class="space-y-3 text-xs text-slate-300 font-mono mb-6">
+                        <div class="flex justify-between">
+                            <span id="summarySuiteName">Suite Deluxe ($45 x 3 noches)</span>
+                            <span id="summarySuiteCost" class="font-bold text-white">$135.00</span>
+                        </div>
+                        <div class="flex justify-between" id="summaryDogMultiplierRow">
+                            <span>Multiplicador Mascotas (1)</span>
+                            <span id="summaryDogMultiplierCost" class="text-white">$0.00</span>
+                        </div>
+                        <div class="flex justify-between" id="summarySpaRow">
+                            <span>Servicio Spa & Baño</span>
+                            <span id="summarySpaCost" class="text-white">$0.00</span>
+                        </div>
+                        <div class="flex justify-between" id="summaryBarfRow">
+                            <span>Menú BARF Gourmet</span>
+                            <span id="summaryBarfCost" class="text-white">$0.00</span>
+                        </div>
+                        <div class="flex justify-between" id="summaryTaxiRow">
+                            <span>Pet Taxi Transporte</span>
+                            <span id="summaryTaxiCost" class="text-white">$0.00</span>
+                        </div>
+                        <div class="flex justify-between text-emeraldCustom-400" id="summaryDiscountRow" style="display: none;">
+                            <span>Descuento Larga Estancia (>7 días)</span>
+                            <span id="summaryDiscountCost">-$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-700 pt-4 mb-6">
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-sm font-bold uppercase tracking-wider text-slate-300">Total Estimado</span>
+                            <div class="text-right">
+                                <span class="font-display font-extrabold text-3xl text-terracotta-400" id="grandTotalDisplay">$135.00</span>
+                                <span class="block text-[10px] text-slate-400">USD o su equivalente local</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="confirmBookingModal()" class="w-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold py-4 rounded-2xl shadow-lg transition-all text-sm tracking-wide uppercase flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Confirmar y Solicitar Reserva
+                    </button>
+
+                    <p class="text-[11px] text-slate-400 text-center mt-3">
+                        <i class="fa-solid fa-lock text-slate-500 mr-1"></i> No cobramos nada hoy. Te contactaremos por WhatsApp.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- GALERÍA DE FOTOS FILTRABLE -->
+    <!-- ========================================== -->
+    <section id="galeria" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="badge-pill bg-purple-500/10 text-purple-600 mb-3">
+                    <i class="fa-solid fa-images mr-1.5"></i> Tour Visual
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-warmdark">Momentos Felices en Villa Guau</h2>
+                <p class="text-slate-600 mt-2 text-sm">Explora las instalaciones y el bienestar de nuestras mascotas huéspedes.</p>
+            </div>
+
+            <!-- Botones de Filtro -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+                <button onclick="filterGallery('todos', this)" class="gallery-filter-btn bg-terracotta-500 text-white px-5 py-2 rounded-full text-xs font-semibold shadow-md transition-all">Todos</button>
+                <button onclick="filterGallery('habitaciones', this)" class="gallery-filter-btn bg-cream-200 text-warmdark hover:bg-cream-300 px-5 py-2 rounded-full text-xs font-semibold transition-all">Habitaciones</button>
+                <button onclick="filterGallery('parques', this)" class="gallery-filter-btn bg-cream-200 text-warmdark hover:bg-cream-300 px-5 py-2 rounded-full text-xs font-semibold transition-all">Parques & Piscina</button>
+                <button onclick="filterGallery('spa', this)" class="gallery-filter-btn bg-cream-200 text-warmdark hover:bg-cream-300 px-5 py-2 rounded-full text-xs font-semibold transition-all">Spa & Grooming</button>
+            </div>
+
+            <!-- Grid Galería -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="galleryGrid">
+                
+                <div class="gallery-item habitaciones relative rounded-2xl overflow-hidden group shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80" alt="Perro descansando" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <span class="font-bold text-sm">Camas Lux</span>
+                        <span class="text-xs text-cream-200">Suite Deluxe</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item parques relative rounded-2xl overflow-hidden group shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?auto=format&fit=crop&w=600&q=80" alt="Perro corriendo en parque" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <span class="font-bold text-sm">Parque Campestre</span>
+                        <span class="text-xs text-cream-200">Juegos al aire libre</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item spa relative rounded-2xl overflow-hidden group shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=600&q=80" alt="Spa canino baño" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <span class="font-bold text-sm">Sesión Grooming</span>
+                        <span class="text-xs text-cream-200">Aromaterapia y baño</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item parques relative rounded-2xl overflow-hidden group shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80" alt="Perro sonriendo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end text-white">
+                        <span class="font-bold text-sm">Piscina Resort</span>
+                        <span class="text-xs text-cream-200">Tarde de clavados</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TESTIMONIOS Y OPINIONES -->
+    <!-- ========================================== -->
+    <section class="py-20 bg-cream-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="badge-pill bg-amber-500/10 text-amber-700 mb-3">
+                    <i class="fa-solid fa-star mr-1"></i> Reseñas Verificadas
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-warmdark">Lo que dicen los Papás Caninos</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Testimonio 1 -->
+                <div class="bg-white p-6 rounded-3xl shadow-card border border-cream-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 italic leading-relaxed">
+                            "Dejar a Max siempre me causaba ansiedad, pero la cámara web en vivo 24/7 me dio total tranquilidad mientras estaba de viaje de negocios. ¡Regresó feliz y oliendo riquísimo!"
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-cream-100">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Laura G." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <span class="block font-bold text-xs text-warmdark">Laura Gómez</span>
+                            <span class="text-[10px] text-slate-400">Mamá de Max (Golden Retriever)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="bg-white p-6 rounded-3xl shadow-card border border-cream-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 italic leading-relaxed">
+                            "El servicio de menú BARF gourmet y el área de piscina son increíbles. Bruno no quería subirse al auto cuando fuimos por él de lo bien que la pasó. Recomendado 100%."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-cream-100">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Carlos M." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <span class="block font-bold text-xs text-warmdark">Carlos M.</span>
+                            <span class="text-[10px] text-slate-400">Papá de Bruno (French Bulldog)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="bg-white p-6 rounded-3xl shadow-card border border-cream-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 italic leading-relaxed">
+                            "La atención veterinaria es de primera clase. Mi perrita toma medicación cada 8 horas y el equipo siguió las indicaciones al pie de la letra con reportes diarios."
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center gap-3 pt-4 border-t border-cream-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Ana P." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <span class="block font-bold text-xs text-warmdark">Ana Sofía P.</span>
+                            <span class="text-[10px] text-slate-400">Mamá de Coco (Poodle)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PREGUNTAS FRECUENTES (FAQ ACORDEÓN) -->
+    <!-- ========================================== -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-14">
+                <span class="badge-pill bg-terracotta-500/10 text-terracotta-600 mb-3">
+                    <i class="fa-solid fa-circle-question mr-1"></i> Dudas Frecuentes
+                </span>
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-warmdark">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ Item 1 -->
+                <div class="border border-cream-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 bg-cream-50 text-left font-display font-bold text-sm text-warmdark hover:bg-cream-100 transition-colors">
+                        <span>¿Cuáles son los requisitos de vacunación para hospedar a mi perro?</span>
+                        <i class="fa-solid fa-chevron-down text-terracotta-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 bg-white text-xs text-slate-600 leading-relaxed border-t border-cream-200">
+                        Solicitamos cartilla de vacunación al día que incluya: Rabia, Múltiple (Sextuple/Octuple), Bordetella (Tos de las perreras) y desparasitación interna/externa (antipulgas/garrapatas) realizada en los últimos 30 días.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border border-cream-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 bg-cream-50 text-left font-display font-bold text-sm text-warmdark hover:bg-cream-100 transition-colors">
+                        <span>¿Debo llevar la comida habitual de mi mascota?</span>
+                        <i class="fa-solid fa-chevron-down text-terracotta-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 bg-white text-xs text-slate-600 leading-relaxed border-t border-cream-200">
+                        Recomendamos traer su croqueta habitual porcionada para evitar desórdenes digestivos por cambio repentino de dieta. Sin embargo, si deseas contratar nuestro menú BARF Gourmet, lo prepararemos fresco según tus indicaciones.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border border-cream-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 bg-cream-50 text-left font-display font-bold text-sm text-warmdark hover:bg-cream-100 transition-colors">
+                        <span>¿Cómo funciona el acceso a las cámaras de monitoreo 24/7?</span>
+                        <i class="fa-solid fa-chevron-down text-terracotta-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 bg-white text-xs text-slate-600 leading-relaxed border-t border-cream-200">
+                        Al completar tu check-in recibirás un enlace único y credenciales seguras de acceso directo a las cámaras HD instaladas en su suite y en las zonas comunes de juego para ver a tu perrito desde tu smartphone en tiempo real.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border border-cream-200 rounded-2xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 bg-cream-50 text-left font-display font-bold text-sm text-warmdark hover:bg-cream-100 transition-colors">
+                        <span>¿Aceptan perritos con cuidados o medicamentos especiales?</span>
+                        <i class="fa-solid fa-chevron-down text-terracotta-500 transition-transform"></i>
+                    </button>
+                    <div class="faq-answer hidden p-5 bg-white text-xs text-slate-600 leading-relaxed border-t border-cream-200">
+                        ¡Sí! Nuestro equipo técnico veterinario está capacitado para administrar tratamientos orales, tópicos o inyectados (como insulina) en los horarios exactos indicados sin costo adicional.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FOOTER Y SECCIÓN DE CONTACTO -->
+    <!-- ========================================== -->
+    <footer class="bg-warmdark text-white pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Columna 1: Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-terracotta-500 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-paw text-lg"></i>
+                        </div>
+                        <span class="font-display font-extrabold text-xl text-white tracking-tight">Villa Guau</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        El primer hotel boutique & resort spa de 5 estrellas enfocado exclusivamente en la felicidad, seguridad y relajación canina.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-terracotta-500 flex items-center justify-center text-xs text-slate-300 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-terracotta-500 flex items-center justify-center text-xs text-slate-300 hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-slate-800 hover:bg-terracotta-500 flex items-center justify-center text-xs text-slate-300 hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-amber-400 mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-xs text-slate-300">
+                        <li><a href="#inicio" class="hover:text-terracotta-400 transition-colors">Inicio</a></li>
+                        <li><a href="#suites" class="hover:text-terracotta-400 transition-colors">Suites y Habitaciones</a></li>
+                        <li><a href="#servicios" class="hover:text-terracotta-400 transition-colors">Servicios Spa & BARF</a></li>
+                        <li><a href="#camaras" class="hover:text-terracotta-400 transition-colors">Cámaras en Vivo</a></li>
+                        <li><a href="#cotizador" class="hover:text-terracotta-400 transition-colors">Calculadora de Tarifas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contacto y Horarios -->
+                <div>
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-amber-400 mb-4">Ubicación & Atención</h4>
+                    <ul class="space-y-3 text-xs text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-location-dot text-terracotta-400 mt-0.5"></i>
+                            <span>Av. del Bosque Canino #450, Col. Zapopan Country, Jalisco.</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-terracotta-400"></i>
+                            <span>Check-in / Check-out: 08:00 - 19:30 hrs</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-terracotta-400"></i>
+                            <span>reservas@villaguau.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Newsletter Club Guau -->
+                <div>
+                    <h4 class="font-display font-bold text-sm uppercase tracking-wider text-amber-400 mb-4">Club Villa Guau</h4>
+                    <p class="text-xs text-slate-400 mb-3">Suscríbete para recibir promociones de temporada y días gratis de hospedaje.</p>
+                    <form onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte al Club Villa Guau!');" class="space-y-2">
+                        <input type="email" placeholder="Tu correo electrónico" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-terracotta-500" required>
+                        <button type="submit" class="w-full bg-emeraldCustom-600 hover:bg-emeraldCustom-500 text-white font-bold py-2 rounded-xl text-xs transition-colors">
+                            Unirme al Club
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 Villa Guau Pet Hotel & Spa. Todos los derechos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:underline">Aviso de Privacidad</a>
+                    <a href="#" class="hover:underline">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- MODAL DE CONFIRMACIÓN DE RESERVA -->
+    <!-- ========================================== -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl transform scale-95 transition-transform duration-300 relative border border-cream-200">
+            
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-cream-100 text-slate-500 hover:bg-terracotta-500 hover:text-white transition-colors flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center">
+                <div class="w-16 h-16 bg-emeraldCustom-500/10 text-emeraldCustom-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                
+                <h3 class="font-display font-extrabold text-2xl text-warmdark">¡Pre-Reserva Solicitada!</h3>
+                <p class="text-xs text-slate-500 mt-1">Hemos registrado los detalles para la estancia de tu peludito.</p>
+            </div>
+
+            <div class="bg-cream-50 p-4 rounded-2xl border border-cream-200 my-6 space-y-2 text-xs">
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Mascota:</span>
+                    <span class="font-bold text-warmdark" id="modalPetName">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Suite:</span>
+                    <span class="font-bold text-warmdark" id="modalSuite">-</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Noches:</span>
+                    <span class="font-bold text-warmdark" id="modalNights">-</span>
+                </div>
+                <div class="flex justify-between border-t border-cream-200 pt-2 font-bold text-sm">
+                    <span class="text-warmdark">Total Cotizado:</span>
+                    <span class="text-terracotta-600 font-display" id="modalTotal">-</span>
+                </div>
+            </div>
+
+            <p class="text-xs text-slate-600 text-center mb-6">
+                En breve un asesor de <strong>Villa Guau</strong> te escribirá por WhatsApp para verificar disponibilidad de fechas y enviar la ficha de vacunación.
+            </p>
+
+            <button onclick="closeBookingModal()" class="w-full bg-terracotta-500 hover:bg-terracotta-600 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-xs uppercase tracking-wider">
+                Entendido, ¡Gracias!
+            </button>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT Y LÓGICA DE INTERACCIÓN -->
+    <!-- ========================================== -->
+    <script>
+        // Menu Móvil Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            });
+        });
+
+        // Set Default Dates en Quick Search
+        const today = new Date();
+        const checkInDate = new Date(today);
+        checkInDate.setDate(today.getDate() + 1);
+        const checkOutDate = new Date(today);
+        checkOutDate.setDate(today.getDate() + 4);
+
+        document.getElementById('quickCheckIn').value = checkInDate.toISOString().split('T')[0];
+        document.getElementById('quickCheckOut').value = checkOutDate.toISOString().split('T')[0];
+
+        function scrollToCalculator() {
+            document.getElementById('cotizador').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Seleccionar Suite desde las Tarjetas
+        function selectSuite(suiteValue, price) {
+            const radio = document.querySelector(`input[name="suiteType"][value="${suiteValue}"]`);
+            if (radio) {
+                radio.checked = true;
+                calculateTotal();
+                scrollToCalculator();
+            }
+        }
+
+        // Ajustar Noches
+        function adjustNights(delta) {
+            const input = document.getElementById('calcNights');
+            let current = parseInt(input.value) || 1;
+            current = Math.max(1, Math.min(60, current + delta));
+            input.value = current;
+            calculateTotal();
+        }
+
+        // LÓGICA DE CALCULADORA EN TIEMPO REAL
+        function calculateTotal() {
+            const selectedSuiteRadio = document.querySelector('input[name="suiteType"]:checked');
+            if (!selectedSuiteRadio) return;
+
+            const suitePrice = parseFloat(selectedSuiteRadio.dataset.price);
+            const suiteType = selectedSuiteRadio.value;
+            const nights = parseInt(document.getElementById('calcNights').value) || 1;
+            const dogsCount = parseInt(document.getElementById('calcDogsCount').value) || 1;
+
+            const addonSpa = document.getElementById('addonSpa').checked;
+            const addonBarf = document.getElementById('addonBarf').checked;
+            const addonTaxi = document.getElementById('addonTaxi').checked;
+
+            // Nombres amigables de suite
+            const suiteNames = {
+                'deluxe': 'Suite Deluxe Classic',
+                'jardin': 'Villa Jardín Privado',
+                'royale': 'Suite Imperial Royale'
+            };
+
+            // Cálculo base
+            let baseSuiteTotal = suitePrice * nights;
+            
+            // Perros adicionales (1er perro base 100%, 2do perro +85%, 3er perro +80%)
+            let dogMultiplierFactor = 1;
+            if (dogsCount === 2) dogMultiplierFactor = 1.85;
+            if (dogsCount === 3) dogMultiplierFactor = 2.60;
+
+            let subtotalSuiteDogs = baseSuiteTotal * dogMultiplierFactor;
+            let dogExtraCost = subtotalSuiteDogs - baseSuiteTotal;
+
+            // Addons
+            let spaCost = addonSpa ? 35 : 0;
+            let barfCost = addonBarf ? (12 * nights * dogsCount) : 0;
+            let taxiCost = addonTaxi ? 25 : 0;
+
+            let grandTotal = subtotalSuiteDogs + spaCost + barfCost + taxiCost;
+
+            // Descuento por larga estancia (> 7 noches)
+            let discount = 0;
+            if (nights >= 7) {
+                discount = grandTotal * 0.10;
+                grandTotal -= discount;
+            }
+
+            // Actualizar vista desglosada
+            document.getElementById('summarySuiteName').innerText = `${suiteNames[suiteType]} ($${suitePrice} x ${nights} nch)`;
+            document.getElementById('summarySuiteCost').innerText = `$${baseSuiteTotal.toFixed(2)}`;
+
+            if (dogsCount > 1) {
+                document.getElementById('summaryDogMultiplierRow').style.display = 'flex';
+                document.getElementById('summaryDogMultiplierCost').innerText = `+$${dogExtraCost.toFixed(2)}`;
+            } else {
+                document.getElementById('summaryDogMultiplierRow').style.display = 'none';
+            }
+
+            document.getElementById('summarySpaRow').style.display = addonSpa ? 'flex' : 'none';
+            document.getElementById('summarySpaCost').innerText = `+$${spaCost.toFixed(2)}`;
+
+            document.getElementById('summaryBarfRow').style.display = addonBarf ? 'flex' : 'none';
+            document.getElementById('summaryBarfCost').innerText = `+$${barfCost.toFixed(2)}`;
+
+            document.getElementById('summaryTaxiRow').style.display = addonTaxi ? 'flex' : 'none';
+            document.getElementById('summaryTaxiCost').innerText = `+$${taxiCost.toFixed(2)}`;
+
+            if (discount > 0) {
+                document.getElementById('summaryDiscountRow').style.display = 'flex';
+                document.getElementById('summaryDiscountCost').innerText = `-$${discount.toFixed(2)}`;
+            } else {
+                document.getElementById('summaryDiscountRow').style.display = 'none';
+            }
+
+            document.getElementById('grandTotalDisplay').innerText = `$${grandTotal.toFixed(2)}`;
+        }
+
+        // Modal de Confirmación
+        function confirmBookingModal() {
+            const petName = document.getElementById('petNameInput').value.trim() || 'Tu Peludito';
+            const selectedSuiteRadio = document.querySelector('input[name="suiteType"]:checked');
+            const nights = document.getElementById('calcNights').value;
+            const grandTotal = document.getElementById('grandTotalDisplay').innerText;
+
+            const suiteNames = {
+                'deluxe': 'Suite Deluxe Classic',
+                'jardin': 'Villa Jardín Privado',
+                'royale': 'Suite Imperial Royale'
+            };
+
+            document.getElementById('modalPetName').innerText = petName;
+            document.getElementById('modalSuite').innerText = suiteNames[selectedSuiteRadio.value];
+            document.getElementById('modalNights').innerText = `${nights} noche(s)`;
+            document.getElementById('modalTotal').innerText = grandTotal;
+
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.remove('scale-95');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        // FAQ Acordeón
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('i');
+            const isHidden = answer.classList.contains('hidden');
+
+            document.querySelectorAll('.faq-answer').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('#faq button i').forEach(i => i.className = 'fa-solid fa-chevron-down text-terracotta-500 transition-transform');
+
+            if (isHidden) {
+                answer.classList.remove('hidden');
+                icon.className = 'fa-solid fa-chevron-up text-terracotta-500 transition-transform';
+            }
+        }
+
+        // Galería Filtros
+        function filterGallery(category, btn) {
+            document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+                b.className = 'gallery-filter-btn bg-cream-200 text-warmdark hover:bg-cream-300 px-5 py-2 rounded-full text-xs font-semibold transition-all';
+            });
+            btn.className = 'gallery-filter-btn bg-terracotta-500 text-white px-5 py-2 rounded-full text-xs font-semibold shadow-md transition-all';
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'todos' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // SIMULADOR CANVAS CÁMARA WEB EN VIVO
+        const canvas = document.getElementById('webcamCanvas');
+        const ctx = canvas.getContext('2d');
+        let currentZone = 'indoor';
+        let animationFrameId;
+
+        // Configurar tamaño canvas
+        function resizeCanvas() {
+            if (canvas.parentElement) {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+            }
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        // Objetos interactivos en el canvas (Perros simulados)
+        let dogs = [
+            { x: 150, y: 200, radius: 24, color: '#e07a5f', vx: 1.2, vy: 0.8, name: 'Max (Golden)' },
+            { x: 300, y: 180, radius: 20, color: '#f4a261', vx: -1.0, vy: 1.1, name: 'Luna (Beagle)' },
+            { x: 450, y: 220, radius: 28, color: '#2a9d8f', vx: 0.8, vy: -0.9, name: 'Thor (Labrador)' }
+        ];
+
+        let floatingItems = [];
+
+        function drawCameraScene() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar fondo según la zona elegida
+            if (currentZone === 'indoor') {
+                ctx.fillStyle = '#1e293b';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                // Tapete / Agility
+                ctx.fillStyle = '#334155';
+                ctx.beginPath();
+                ctx.roundRect(50, canvas.height - 80, canvas.width - 100, 60, 16);
+                ctx.fill();
+            } else if (currentZone === 'pool') {
+                ctx.fillStyle = '#0e7490';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                // Olas simuladas
+                ctx.fillStyle = '#06b6d4';
+                ctx.beginPath();
+                ctx.arc(canvas.width/2, canvas.height/2, 120, 0, Math.PI * 2);
+                ctx.fill();
+            } else if (currentZone === 'suite') {
+                ctx.fillStyle = '#312e81';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                // Cama VIP
+                ctx.fillStyle = '#4338ca';
+                ctx.beginPath();
+                ctx.roundRect(canvas.width/2 - 100, canvas.height/2 - 50, 200, 100, 20);
+                ctx.fill();
+            } else {
+                ctx.fillStyle = '#14532d';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                // Pasto
+                ctx.fillStyle = '#15803d';
+                ctx.beginPath();
+                ctx.arc(100, 100, 80, 0, Math.PI * 2);
+                ctx.arc(canvas.width - 100, canvas.height - 80, 110, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Animación de los perritos
+            dogs.forEach(dog => {
+                dog.x += dog.vx;
+                dog.y += dog.vy;
+
+                // Rebote en bordes
+                if (dog.x - dog.radius < 20 || dog.x + dog.radius > canvas.width - 20) dog.vx *= -1;
+                if (dog.y - dog.radius < 50 || dog.y + dog.radius > canvas.height - 30) dog.vy *= -1;
+
+                // Dibujar sombra
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.beginPath();
+                ctx.ellipse(dog.x, dog.y + dog.radius - 2, dog.radius * 0.8, dog.radius * 0.3, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Dibujar Cuerpo Perro
+                ctx.fillStyle = dog.color;
+                ctx.beginPath();
+                ctx.arc(dog.x, dog.y, dog.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Dibujar Orejas
+                ctx.fillStyle = '#264653';
+                ctx.beginPath();
+                ctx.arc(dog.x - dog.radius * 0.6, dog.y - dog.radius * 0.6, 6, 0, Math.PI * 2);
+                ctx.arc(dog.x + dog.radius * 0.6, dog.y - dog.radius * 0.6, 6, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Etiqueta Nombre
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '10px Montserrat, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(dog.name, dog.x, dog.y + dog.radius + 14);
+            });
+
+            // Dibujar Items Flotantes (Pelotas, Burbujas, Treats)
+            floatingItems.forEach((item, index) => {
+                item.y += item.vy;
+                item.life -= 1;
+
+                ctx.font = '20px serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(item.icon, item.x, item.y);
+
+                if (item.life <= 0) floatingItems.splice(index, 1);
+            });
+
+            animationFrameId = requestAnimationFrame(drawCameraScene);
+        }
+
+        // Cambiar de zona de cámara
+        function switchCamera(zone, btn) {
+            currentZone = zone;
+            document.querySelectorAll('.cam-tab-btn').forEach(b => {
+                b.className = 'cam-tab-btn bg-slate-800 text-slate-300 hover:bg-slate-700 font-medium text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all flex items-center gap-2';
+            });
+            btn.className = 'cam-tab-btn active bg-terracotta-500 text-white font-medium text-xs sm:text-sm px-4 py-2.5 rounded-xl transition-all flex items-center gap-2';
+
+            const zoneTitles = {
+                'indoor': 'CAM 01: ZONA DE JUEGOS INDOOR',
+                'pool': 'CAM 02: POOL RESORT CANINO',
+                'suite': 'CAM 03: SUITE LOUNGE VIP',
+                'park': 'CAM 04: JARDINES CAMPESTRES'
+            };
+            document.getElementById('camLocationName').innerText = zoneTitles[zone];
+        }
+
+        // Acciones interactiva en la cámara
+        function triggerCamAction(type) {
+            const icons = { 'ball': '🎾', 'treat': '🦴', 'bubbles': '🫧' };
+            const messages = {
+                'ball': '¡Pelota lanzada en vivo! 🎾',
+                'treat': '¡Premio crujiente entregado! 🦴',
+                'bubbles': '¡Burbujas de mantequilla activadas! 🫧'
+            };
+
+            floatingItems.push({
+                x: Math.random() * (canvas.width - 100) + 50,
+                y: 80,
+                vy: 1.5,
+                life: 120,
+                icon: icons[type]
+            });
+
+            const notif = document.getElementById('camNotification');
+            notif.innerText = messages[type];
+            notif.classList.remove('translate-y-10', 'opacity-0');
+
+            setTimeout(() => {
+                notif.classList.add('translate-y-10', 'opacity-0');
+            }, 2500);
+        }
+
+        // Reloj en Tiempo Real
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('camClock').innerText = now.toLocaleTimeString();
+        }, 1000);
+
+        // Inicializar al cargar la página
+        window.onload = function() {
+            calculateTotal();
+            resizeCanvas();
+            drawCameraScene();
+        };
+    </script>
+</body>
+</html>
